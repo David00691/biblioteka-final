@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2024 at 10:34 PM
+-- Generation Time: Feb 12, 2024 at 11:25 PM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -44,10 +44,10 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`id`, `author`, `title`, `user_id`, `loan_date`, `return_date`, `borrower`, `status`, `borrower_full_name`) VALUES
-(2, 'bracia grim', 'kot w butach', 1, '2024-02-11', '2024-01-22', '1', NULL, NULL),
-(3, 'Prus', 'lalka', 1, '2024-02-12', '2024-02-26', NULL, NULL, NULL),
+(2, 'bracia grim', 'kot w butach', 1, '2024-02-12', '2024-01-26', '1', NULL, NULL),
+(3, 'Prus', 'lalka', 1, '2024-02-12', '2024-02-26', '1', NULL, NULL),
 (5, 'nie wiem', 'shrek', 1, NULL, NULL, NULL, NULL, NULL),
-(6, 'Adam Mickiewicz', 'pan tadeusz', 1, '2024-02-11', '2024-02-25', NULL, NULL, NULL);
+(6, 'Adam Mickiewicz', 'pan tadeusz', 1, '2024-02-11', '2024-02-25', '1', NULL, NULL);
 
 --
 -- Indeksy dla zrzutów tabel
