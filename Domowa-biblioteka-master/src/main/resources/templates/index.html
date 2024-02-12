@@ -73,7 +73,7 @@
 								<td th:text="${book.author}"></td>
 								<td><a th:href="@{/book/update/{id}(id=${book.id})}" class="btn btn-primary">
 									<i class="fas fa-edit ml-2"></i></a></td>
-								<td th:text="${book.borrower}"></td>
+								<td th:text="${book.borrowerFullName}"></td>
 								<td th:text="${book.loanDate}"></td>
 								<td th:text="${book.returnDate}"></td>
 								<td><a th:href="@{/book/delete/{id}(id=${book.id})}" class="btn btn-primary">

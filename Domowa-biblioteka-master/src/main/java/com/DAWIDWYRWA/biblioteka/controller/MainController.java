@@ -35,6 +35,12 @@ public class MainController {
 		User user = userRepository.findByUsername(username);
 		List<Book> books = user.getBooks();
 
+		for (Book book : books) {
+			book.borrowerFullName = "-";
+			if(book.borrower != null)
+				book.borrowerFullName = userRepository.findById(Integer.parseInt(book.borrower)).get().getUsername();
+
+		}
 		model.addAttribute("books", books);
 		return "index.html";
 	}
