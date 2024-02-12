@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Domowa-biblioteka-master.iml" filepath="$PROJECT_DIR$/.idea/Domowa-biblioteka-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Domowa-biblioteka-master/domowabiblioteka.iml" filepath="$PROJECT_DIR$/Domowa-biblioteka-master/domowabiblioteka.iml" />
+    </modules>
+  </component>
+</project>

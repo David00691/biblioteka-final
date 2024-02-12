@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/global.css}" />
+<title>Dodaj książkę</title>
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+<div class="container">
+<div class="navbar-header">
+
+<button type="button" class="navbar-toggle collapsed"
+data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+<span class="sr-only">Toggle navigation</span><span class="icon-bar"></span>
+<span class="icon-bar"></span><span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="#" th:href="@{/}">Rejestracja i logowanie</a>
+</div>
+
+<div id="navbar" class="collapse navbar-collapse">
+<ul class="nav navbar-nav navbar-right">
+<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Wyloguj się</a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+<br>
+<br>
+
+<div class="container my-5">
+
+<h3>Dodaj książkę</h3>
+<div class="card">
+<div class="card-body">
+<div class="col-md-10">
+<form action="#" th:action="@{/book/add}" th:object="${book}" method="post">
+
+<div class="row">
+	<div class="form-group col-md-8">
+		<label for="title" class="col-form-label">Tytuł</label>
+		<input type="text" th:field="*{title}" class="form-control"
+			id="title" placeholder="Tytuł">
+			<span th:if="${#fields.hasErrors('title')}"
+			th:errors="*{title}" class="text-danger">
+			</span>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="form-group col-md-8">
+		<label for="author" class="col-form-label">Autor</label>
+		<input type="text" th:field="*{author}" class="form-control"
+			id="title" placeholder="Autor">
+			<span th:if="${#fields.hasErrors('author')}"
+			th:errors="*{author}" class="text-danger">
+			</span>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-6">
+	<input type="submit" class="btn btn-primary" value="Dodaj książkę">
+	</div>
+</div>
+
+
+</form>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+<script type="text/javascript" th:src="@{/js/jquery-3.4.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

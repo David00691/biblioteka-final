@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/global.css}" />
+    <title>Książki wypożyczone</title>
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span>
+                <span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" th:href="@{/}">Rejestracja i logowanie</a>
+        </div>
+
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Wyloguj się</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<br>
+<br>
+
+<div class="container my-5">
+    <h3>Książki wypożyczone</h3>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-10">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Tytuł</th>
+                        <th>Autor</th>
+                        <th>Wypożyczający</th>
+                        <th>Data wypożyczenia</th>
+                        <th>Data zwrotu</th>
+                        <th>Przekroczony czas oddania</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- Iteracja przez wszystkie wypożyczone książki -->
+                    <tr th:each="book : ${rentedBooks}">
+                        <td th:text="${book.title}"></td>
+                        <td th:text="${book.author}"></td>
+                        <td th:text="${book.borrowerFullName}"></td>
+                        <td th:text="${book.loanDate}"></td>
+                        <td th:text="${book.returnDate}"></td>
+                        <td th:text="${book.status}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" th:src="@{/js/jquery-3.4.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

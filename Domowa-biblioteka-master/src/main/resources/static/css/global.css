@@ -1,0 +1,18 @@
+td, th {	
+text-align:center;
+vertical-align: middle !important;
+}
+
+.table {
+padding: 0;
+}
+
+#addButton {
+margin: 10px 0 10px 0;
+}
+
+h1, h2, h3 {
+	margin-top:30px;
+	
+}
+ 
