@@ -15,7 +15,7 @@ import org.springframework.stereotype.Controller;
 
 import com.DAWIDWYRWA.biblioteka.model.Book;
 import com.DAWIDWYRWA.biblioteka.model.User;
-import com.DAWIDWYRWA.biblioteka.dto.RentedBookDto;
+
 
 @Controller
 public class MainController {
@@ -66,60 +66,12 @@ public class MainController {
 		model.addAttribute("books", books);
 		return "search.html";
 	}
-/*	@GetMapping("/rented")
-	public String rentedBooks(Model model, Principal principal) {
-		String username = principal.getName();
-		User user = userRepository.findByUsername(username);
-		List<Book> rentedBooks = bookRepository.findByBorrower(user);
-
-		// Tworzenie listy DTO dla wypożyczonych książek wraz z imieniem i nazwiskiem osoby wypożyczającej
-		List<RentedBookDto> rentedBookDtos = new ArrayList<>();
-		for (Book book : rentedBooks) {
-			RentedBookDto rentedBookDto = new RentedBookDto();
-			rentedBookDto.setTitle(book.getTitle());
-			rentedBookDto.setBorrowerFullName(user.getUsername());
-			rentedBookDto.setLoanDate(book.getLoanDate()); // Dodaj jeśli chcesz także datę wypożyczenia
-			rentedBookDtos.add(rentedBookDto);
-		}
-
-		model.addAttribute("rentedBooks", rentedBookDtos);
-		return "rented_books"; // Upewnij się, że masz szablon "rented_books.html" odpowiednio zdefiniowany
-	}
-
-*/
-
-
-	/*
-	@GetMapping("/search")
-	public String rentedBooks(Model model, Principal principal) {
-
-		String username = principal.getName();
-		User user = userRepository.findByUsername(username);
-		List<Book> books;
-		if( book.get()!= null){
-			books=user.getBooks();
-		}
-
-		model.addAttribute("books", books);
-		return "rented_books.html";
-	}
-*/
 	@GetMapping("/rented")
 	public String rentedBooks(Model model, Principal principal) {
 		String username = principal.getName();
 		User user = userRepository.findByUsername(username);
 		List<Book> booksWithBorrowedNotNull = bookRepository.findByBorrowerIsNotNull();
-/*
-		// Tworzenie listy DTO dla wypożyczonych książek wraz z imieniem i nazwiskiem osoby wypożyczającej
-		List<RentedBookDto> rentedBookDtos = new ArrayList<>();
-		for (Book book : booksWithBorrowedNotNull) {
-			RentedBookDto rentedBookDto = new RentedBookDto();
-			rentedBookDto.setTitle(book.getTitle());
-			rentedBookDto.setAuthor(book.getTitle());
-			rentedBookDto.setBorrowerFullName(user.getUsername());
-			rentedBookDto.setLoanDate(book.getLoanDate()); // Dodaj jeśli chcesz także datę wypożyczenia
-			rentedBookDtos.add(rentedBookDto);
-		}*/
+
 		for (Book book : booksWithBorrowedNotNull) {
 			book.borrowerFullName = userRepository.findById(Integer.parseInt(book.borrower)).get().getUsername();
 			book.status = "---";

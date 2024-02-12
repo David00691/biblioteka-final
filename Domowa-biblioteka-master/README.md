@@ -1,6 +1,6 @@
 # Biblioteka
 
-Aplikacja webowa umożliwiająca zarządzanie domową biblioteką.
+Aplikacja webowa umożliwiająca zarządzanie biblioteką.
 
 # Wykorzystane technologie i biblioteki:
 
